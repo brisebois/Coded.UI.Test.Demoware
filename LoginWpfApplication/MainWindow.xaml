@@ -1,0 +1,12 @@
+﻿<Window x:Class="LoginWpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:LoginWpfApplication.ViewModel" Title="Login Test Application" Height="110" Width="239">
+    <Window.Resources>
+        <ViewModel:ApplicationContext x:Key="ApplicationContext" />
+    </Window.Resources>
+    <Grid DataContext="{Binding Mode=OneWay, Source={StaticResource ApplicationContext}}">
+        <Button AutomationProperties.AutomationId="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="211" Height="61" Command="{Binding ShowLogin, Mode=OneWay}"/>
+
+    </Grid>
+</Window>

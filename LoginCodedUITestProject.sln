@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginCodedUITestProject", "LoginCodedUITestProject\LoginCodedUITestProject.csproj", "{8747FE4F-8085-4A86-AE44-D5F2BBC61983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWpfApplication", "LoginWpfApplication\LoginWpfApplication.csproj", "{D1A6339E-B206-40CE-83A1-DF0A95D20D4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8747FE4F-8085-4A86-AE44-D5F2BBC61983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8747FE4F-8085-4A86-AE44-D5F2BBC61983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8747FE4F-8085-4A86-AE44-D5F2BBC61983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8747FE4F-8085-4A86-AE44-D5F2BBC61983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A6339E-B206-40CE-83A1-DF0A95D20D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A6339E-B206-40CE-83A1-DF0A95D20D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A6339E-B206-40CE-83A1-DF0A95D20D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A6339E-B206-40CE-83A1-DF0A95D20D4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
