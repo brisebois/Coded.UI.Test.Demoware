@@ -1,0 +1,4 @@
+This project is in no war production code.
+The LoginWpfApplication project is strictly Demoware.
+
+Use LogicCodedUITestProject to explore UIMaps and Coded UI Tests
