@@ -59,9 +59,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LoginCommand.cs" />
-    <Compile Include="ViewModel\CloseLoginCommand.cs" />
+    <Compile Include="Commands\CloseLoginCommand.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="ViewModel\ShowLoginCommand.cs" />
+    <Compile Include="Commands\ShowLoginCommand.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

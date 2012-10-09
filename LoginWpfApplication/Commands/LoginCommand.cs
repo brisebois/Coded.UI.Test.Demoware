@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using LoginWpfApplication.ViewModel;
 
@@ -28,15 +30,16 @@ namespace LoginWpfApplication.Commands
 
         public void Execute(object parameter)
         {
-            if((string.IsNullOrEmpty(loginViewModel.Password) && string.IsNullOrEmpty(loginViewModel.UserName)))
-            loginViewModel.SetNoCredentialsWereProdided();
+            var names = new List<string> {"Alexandre", "Etienne","DotNetMontreal"};
+            if ((string.IsNullOrEmpty(loginViewModel.Password) && string.IsNullOrEmpty(loginViewModel.UserName)))
+                loginViewModel.SetNoCredentialsWereProdided();
             else
-            if (loginViewModel.Password == "P@ssword" && loginViewModel.UserName == "alexandre")
-                loginViewModel.SetAuthenticated();
-            else
-            {
-                loginViewModel.SetUnknownCredentials();
-            }
+                if (loginViewModel.Password == "P@ssword" && names.Any(n => loginViewModel.UserName.ToUpper() == n.ToUpper()))
+                    loginViewModel.SetAuthenticated();
+                else
+                {
+                    loginViewModel.SetUnknownCredentials();
+                }
         }
 
         public event EventHandler CanExecuteChanged;

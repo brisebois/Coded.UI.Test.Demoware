@@ -28,7 +28,7 @@ namespace LoginCodedUITestProject
                                                     r => r.UILoginTestApplicationWindow);
         }
 
-        const string path = @"C:\Users\alexandre\Documents\Visual Studio 2012\Projects\LoginCodedUITestProject\LoginWpfApplication\bin\Debug\";
+        const string path = @"C:\Users\alexandre\Documents\GitHub\Coded.UI.Test.Demoware\LoginWpfApplication\bin\Debug\";
 
         /// <summary>
         /// Given that I have a valid username and password when I 
@@ -52,6 +52,38 @@ namespace LoginCodedUITestProject
                 UILoginWindow uiLoginWindow = loginWindow.UILoginWindow;
 
                 bool loginWindowNotExit = uiLoginWindow.WaitForControlNotExist(1000);
+                Assert.IsTrue(loginWindowNotExit);
+            }
+        }
+
+        /// <summary>
+        /// Given that I have a valid username and password when I 
+        /// Login I expect that I will be redirected to the proper screen.
+        /// </summary>
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+            "|DataDirectory|\\UserData.csv",
+            "UserData#csv",
+             DataAccessMethod.Random)]
+        public void GivenValidDataDrivenCredentialsWhenILoginIExpectThatTheLoginWindowWillDisapear()
+        {
+
+            string fileName = string.Format(@"{0}LoginWpfApplication.exe", path);
+            using (ApplicationUnderTest.Launch(fileName))
+            {
+                container.UIMap.ClickOnLogin();
+                var loginWindow = container.Get<LoginWindowIUMap>();
+
+                loginWindow.TypeUsernameParams.UIUserNameTextboxEditText = TestContext.DataRow["User"].ToString();
+                loginWindow.TypeUsername();
+                loginWindow.TypeUserPasswordParams.UIPasswordTextboxEditText  = TestContext.DataRow["Password"].ToString();
+                loginWindow.TypeUserPassword();
+
+                loginWindow.ClickLogin();
+
+                UILoginWindow uiLoginWindow = loginWindow.UILoginWindow;
+
+                bool loginWindowNotExit = uiLoginWindow.WaitForControlNotExist(10000);
                 Assert.IsTrue(loginWindowNotExit);
             }
         }

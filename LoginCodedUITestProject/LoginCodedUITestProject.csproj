@@ -71,6 +71,9 @@
   <ItemGroup>
     <None Include="LoginWindowIUMap.uitest" />
     <None Include="LoginWpfApplicationUIMap.uitest" />
+    <Content Include="UserData.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

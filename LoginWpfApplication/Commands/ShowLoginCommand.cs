@@ -1,13 +1,14 @@
 using System;
 using System.Windows.Input;
+using LoginWpfApplication.ViewModel;
 
-namespace LoginWpfApplication.ViewModel
+namespace LoginWpfApplication.Commands
 {
-    public class CloseLoginCommand : ICommand
+    public class ShowLoginCommand : ICommand
     {
         private readonly ApplicationContext applicationContext;
 
-        public CloseLoginCommand(ApplicationContext applicationContext)
+        public ShowLoginCommand(ApplicationContext applicationContext)
         {
             this.applicationContext = applicationContext;
         }
@@ -19,7 +20,7 @@ namespace LoginWpfApplication.ViewModel
 
         public void Execute(object parameter)
         {
-            applicationContext.LoginWindow.Close();
+            applicationContext.LoginWindow.Show();
         }
 
         public event EventHandler CanExecuteChanged;
