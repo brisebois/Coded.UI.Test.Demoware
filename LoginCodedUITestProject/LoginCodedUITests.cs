@@ -23,6 +23,24 @@ namespace LoginCodedUITestProject
     {
         public LoginCodedUITests()
         {
+            Playback.PlaybackSettings.MatchExactHierarchy = true;
+            
+            Playback.PlaybackSettings.SmartMatchOptions = SmartMatchOptions.Control;
+            Playback.PlaybackSettings.SmartMatchOptions = SmartMatchOptions.TopLevelWindow;
+            Playback.PlaybackSettings.SmartMatchOptions = SmartMatchOptions.None;
+
+            Playback.PlaybackSettings.SearchInMinimizedWindows = true;
+            Playback.PlaybackSettings.SearchTimeout = 1000;
+            Playback.PlaybackSettings.ShouldSearchFailFast = true;
+
+            Playback.PlaybackSettings.ThinkTimeMultiplier = 2;
+            
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.AllThreads;
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.UIThreadOnly;
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;
+
+            Playback.PlaybackSettings.WaitForReadyTimeout = 1000;
+
             container = new UIMapContainer<LoginWpfApplicationUIMap>();
             container.Configure<LoginWindowIUMap>(m => m.UILoginTestApplicationWindow,
                                                     r => r.UILoginTestApplicationWindow);
@@ -74,7 +92,9 @@ namespace LoginCodedUITestProject
                 container.UIMap.ClickOnLogin();
                 var loginWindow = container.Get<LoginWindowIUMap>();
 
-                loginWindow.TypeUsernameParams.UIUserNameTextboxEditText = TestContext.DataRow["User"].ToString();
+                Keyboard.SendKeys(loginWindow.UILoginWindow.UIUserNameTextboxEdit, TestContext.DataRow["User"].ToString());
+                Keyboard.SendKeysDelay = 10;
+
                 loginWindow.TypeUsername();
                 loginWindow.TypeUserPasswordParams.UIPasswordTextboxEditText  = TestContext.DataRow["Password"].ToString();
                 loginWindow.TypeUserPassword();
